@@ -1,467 +1,252 @@
- @import url('https://fonts.gooleapis.com/css2?family=poppins:wght@300,400,500,600,700,800,900&display=swap');
- *{
+/* Global Styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap");
+
+:root {
+    --theme-color: #3867d6;
+}
+
+* {
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins' , sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s linear;
 }
-body{
-    color: #fff;
-    background: #09001d;
 
-    overflow: hidden;
-
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
 }
-.header{
+
+body {
+    background: #222;
+}
+
+/* Header */
+header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    padding: 20px 10%;
-    background: transparent;
+    right: 0;
+    background: #333;
+    z-index: 1000;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-
+    padding: 1.5rem 9%;
 }
-.logo{
-    font-size: 32px;
+
+header .logo {
     color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    filter: drop-shadow(0 0 5px #09001d);
+    font-weight: bolder;
+    font-size: 2.5rem;
+}
 
+header .logo span {
+    color: var(--theme-color);
 }
-.navbar a{
-    font-size: 18px;color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 35px;
-    transition: .3s;
-    
 
+header .navbar a {
+    font-size: 1.7rem;
+    color: #fff;
+    margin-left: 2rem;
+}
 
+header .navbar a:hover {
+    color: var(--theme-color);
 }
-.navbar a:hover,
-.navbar a.active{
-    color: #c4009c;
-}
-.main{
-    min-height: 100vh;
-    background: url(assets/img.jpg\ \(3\).jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-    pointer-events: auto;
-    transition: .3s ease;
-}
-.main.active{
-    filter: blur(15px);
-    pointer-events: none;
 
+#menu-bar {
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    display: none;
 }
-.container{
-    display: flex;
-    height: 100vh;
-    width: 200%;
-}
-.home{
-    position: relative;
-    left: -50%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-}
-.home-content{
-    max-width: 600px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
-}
-.home-content h1{
-    font-size: 78px;
-    font-weight: 700;
-    text-shadow: 0 0 10px rgb(0, 0, .3);
-}
-.home-content p{
-    font-size: 16px;
+/* Home Section */
+.home .content {
     text-align: center;
-    text-shadow: 0 0 10px rgba(0, 0, 0, .3);
-    margin-bottom: 30px;
-
+    padding-top: 6rem;
+    margin: 2rem auto;
+    max-width: 70rem;
 }
 
-.home-content .start-btn{
-    width: 190px;
-    height: 55px;
-    background: #c40094;
-    border: 2px solid  #fff;
-    outline: none;
-    border-radius: 6px;
-    box-shadow: 0 0 10px #c4009c;
-    font-size: 18px;
+.home .content h3 {
     color: #fff;
-    letter-spacing: 1px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: .5s;
-
-}
-.home-content .start-btn:hover{
-    background: #09001d;
-    box-shadow: none;
+    font-size: 4.5rem;
+    text-transform: uppercase;
 }
 
-.popup-info{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(.9);
-    width: 500px;
-    background: #fff;
-    border-radius: 6px;
-    padding: 10px 25px;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    pointer-events: none;
-    transition: .3s ease;
-}
-.popup-info.active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1);
+.home .content h3 span {
+    color: var(--theme-color);
+    text-transform: uppercase;
 }
 
 
-.popup-info h2{
-    font-size: 50px;
-    color: #c4009c;
-}
-.popup-info .info{
-    display: inline-block;
-    font-size: 16px;
-    color: #333;
-    font-weight: 500;
-    margin: 4px 0;
 
 
-}
-.popup-info .btn-group{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #999;
-    margin-top: 10px;
-    padding: 15px 0 7px ;
-}
-.popup-info .btn-group .info-btn{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 130px;
-    height: 45px;
-    background: #c40094;
-    border: 2px solid #c40094;
-    outline: none;
-    border: 6px;
-    text-decoration: none;
-    font-size: 16px;
-    color: #fff;
-    font-weight: 600;
-    box-shadow: 0 0 10px rgb(0, 0, 0, .1);
-    cursor: pointer;
-    transition: .5s;
-}
-.popup-info .btn-group .info-btn:nth-child(1){
-    background: transparent;
-    color: #c40094;
-}
-.popup-info .btn-group .info-btn:nth-child(1):hover{
-    background: #c40094;
-    color: #fff;
-
-}
-.popup-info .btn-group .info-btn:nth-child(2):hover{
-    background: #950179;
-    border-color: #950179;
 
 
+
+
+
+.btn:hover {
+    background: var(--theme-color);
 }
-.quiz-section{
-    position: relative;
-     left: -50%; 
-    
+
+.home .home-slider .swiper-slide {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    height: 50rem;
+    width: 35rem;
+}
+
+.home .home-slider .swiper-slide img {
+    height: 100%;
     width: 100%;
-    background: #09001d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: .8s ease-in-out;
-    transition-delay: .25s;
-    z-index: 100;
-}
-.quiz-section.active{
-    left: 0;
+    object-fit: cover;
 }
 
-.quiz-section .quiz-box{
-    position: relative;
-    width: 500px;
-    background: transparent;
-    border: 2px solid #c40094;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 30px;
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(.9);
-
-}
-.quiz-section .quiz-box.active{
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1);
-    transition: 1s ease;
-    transition-delay: 1s;
-
-
-
-}
-.quiz-box h1{
-    font-size: 32px;
+/* Services Section */
+.heading {
     text-align: center;
-    background: linear-gradient(45deg, transparent, #c40094, transparent);
-    border-radius: 6px;
+    color: #fff;
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+    font-size: 4rem;
 }
-.quiz-box .quiz-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    border-bottom: 2px solid #c40094;
-    margin-bottom: 30px;
 
+.heading span {
+    color: var(--theme-color);
+    text-transform: uppercase;
 }
-.quiz-header span{
-    font-size: 18px;
-    font-weight: 500;
-}
-.quiz-header .header-score{
-    background: #c40094;
-    border-radius: 3px;
-    padding: 7px;
-}
-.quiz-box .question-text{
-    font-size: 24px;
-    font-weight: 600;
 
+.service {
+    padding: 5rem 3% 5rem 3%;
 }
-.option-list .option{
+
+.service .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr)); /* Responsive grid with a minimum of 27rem */
+    gap: 3rem; /* Added space between boxes */
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 2rem 1rem; /* Added left and right padding to create space */
+}
+
+.service .box-container .box {
+    background: #333;
+    padding: 3rem;
+    border-radius: 0.8rem;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service .box-container .box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service .box-container .box .fas {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--theme-color);
+}
+
+.service .box-container .box h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.service .box-container .box p {
+    font-size: 1.4rem;
+    color: #ccc;
+}
+
+/* Footer */
+.footer {
+    background-color: #111;
+}
+
+.footercontainer {
     width: 100%;
-    padding: 12px;
-    background: transparent;
-    border: 2px solid rgb(255, 255, 255, .2);
-    border-radius: 4px;
-    font-size: 17px;
-    margin: 15px 0;
-    cursor: pointer;
-    transition: .3s;
-
-
-}
-.option.correct {
-    background: #09001d;
-    color: #00a63d;
-    border-color: #00a63d;
+    padding: 70px 30px 20px;
 }
 
-.option.incorrect {
-    background: #09001d;
-    color: red;
-    border-color: red;
-}
-.option.disable {
-    pointer-events: none;
-    opacity: 0.5;
-}
-.option-list .option:hover{
-    background: rgb(255, 255, 255, .1);
-    background-color: rgb(255, 255, 255, .1);
-}
-.quiz-box .quiz-footer{
+.socialicons {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 2px solid #950179;
-    padding-top: 20px;
-    margin-top: 25px;
-
+    justify-content: center;
 }
-.quiz-footer .question-total{
 
-    font-size: 16px;
-    font-weight: 600;
+.socialicons a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: #fff;
+    margin: 10px;
+    border-radius: 50%;
 }
-.quiz-footer .next-btn{
-    width: 100px;
-    height: 45px;
-    background: rgb(255, 255, 255, .1);
-    border: 2px solid rgb(255, 255, 255, .1);
-    outline: none;
-    border-radius: 6px;
-    font-size: 16px;
-    color: rgb(255, 255, 255, .3);
-    font-weight: 600;
-    cursor: pointer;
-    /*pointer-events: none;*/
-    transition: .5s;
 
+.socialicons a i {
+    font-size: 2em;
+    color: black;
+    opacity: 0.9;
+}
 
+.socialicons a:hover {
+    background-color: var(--theme-color);
+    transition: 0.5s;
 }
-.question-footer .next-btn:hover{
-    background: #950179;
-    background-color: #950179;
+
+.socialicons a:hover i {
+    color: #fff;
+    transition: 0.5s;
 }
-.quiz-section .result-box{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(.9);
-    width: 500px;
-    background: transparent;
-    border: 2px solid #c40094;
-    border-radius: 6px;
+
+.footernav {
+    margin: 30px 0;
+}
+
+.footernav ul {
+    display: flex;
+    justify-content: center;
+}
+
+.footernav ul li a {
+    color: #fff;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.footernav ul li a:hover {
+    opacity: 1;
+}
+
+.footerbottom {
+    background-color: #000;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: .3s ease;
-
-}
-.quiz-section .result-box.active{
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1);
-
+    text-align: center;
 }
 
-
-.result-box h2{
-    font-size: 52px;
-
-}
-.result-box .percentage-counter{
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0 40px;
-}
-.percentage-counter .circular-progress{
-    position: relative;
-    width: 250px;
-    height: 250px;
-    background: conic-gradient(#c40094 3.6deg, rgba(255, 255, 255, .1)0deg);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    
-}
-.percentage-counter .circular-progress::before{
-    content: '';
-    position: absolute;
-    width: 210px;
-    height: 210px;
-    background: #09001d;
-    border-radius: 50%;
-}
-.circular-progress .progress-value{
-    position: relative;
-    font-size: 45px;
-    font-weight: 600;
-}
-.percentage-counter .score-text{
-    font-size: 26px;
-    font-weight: 600;
-    margin-top: 20px;
-
-}
-.button {
-    display: flex;
-    justify-content: space-around; /* Distributes buttons evenly */
-    width: 100%; /* Use full width of the parent container */
-    margin-top:  0  20px 20px; /* Add some space above the buttons */
+.footerbottom p {
+    color: #fff;
+    margin: 0;
 }
 
-.tryagain-btn, .gohome-btn {
-    width: 130px;
-    height: 47px;
-    background-color: #c40094; /* Button background color */
-    color: white; /* Text color */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Slightly rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 16px; /* Font size */
-    transition: background-color 0.3s; /* Smooth background color change */
+.designer {
+    opacity: 0.7;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0 5px;
 }
-.tryagain-btn:hover, .gohome-btn:hover { 
-    background: transparent;
-    background-color: #a30073; 
-    color: #fff;/* Darker shade on hover */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
